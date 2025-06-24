@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Memoramas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Memoramas</h1>
+        <form id="memorama-form">
+            <label for="num-cards">Tamaño del grid (ejemplo: 4 para 4x4):</label>
+            <input type="number" id="num-cards" min="2" max="16" required 
+                   oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value>16) this.value=16;">
+
+            <label for="time-limit">Tiempo límite (segundos, mínimo 20):</label>
+            <input type="number" id="time-limit" min="20" max="999" required 
+                   oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value<20) this.value=20; if(this.value>999) this.value=999;">
+
+            <label for="image-zip">
+                Cargar imágenes (.zip):
+                <span class="tooltip">
+                    <i class="fas fa-info-circle"></i>
+                    <span class="tooltiptext">Necesitas subir un archivo ZIP con al menos (tamaño × tamaño)/2 imágenes diferentes</span>
+                </span>
+            </label>
+            <input type="file" id="image-zip" accept=".zip,application/zip" required>
+            <small id="file-error" style="color: red; display: none;">Por favor, sube un archivo .ZIP válido</small>
+            <small id="image-count-hint" style="display: none; color: #3498db; margin-top: -10px; margin-bottom: 15px;"></small>
+
+            <button type="submit">Descargar Memorama</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

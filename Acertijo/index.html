@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Acertijos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js\language-manager.js" defer></script>
+    <!-- Incluir JSZip desde un CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 data-i18n="acertijo_title">Generador de Acertijos</h2>
+        <div class="input-section">
+            <!-- Pregunta -->
+            <label for="question">Pregunta:</label>
+            <textarea id="question" placeholder="Ingresa tu pregunta aquí..." maxlength="500"></textarea>
+            <div class="char-counter"><span id="question-counter">0</span>/500 caracteres</div>
+
+            <!-- Respuesta Correcta -->
+            <label for="correct-answer">
+                Respuesta Correcta (texto o imagen)
+                <span class="tooltip">ℹ️
+                    <span class="tooltiptext">Puedes ingresar texto O cargar una imagen (solo JPG/PNG). No ambos.</span>
+                </span>
+            </label>
+            <div class="answer-option-container">
+                <input type="text" id="correct-answer-text" placeholder="Texto de la respuesta correcta" class="answer-text">
+                <div class="or-divider">O</div>
+                <div class="image-upload-container">
+                    <input type="file" id="correct-answer-image" accept=".jpg,.jpeg,.png" class="answer-image">
+                    <div class="file-info" id="correct-answer-file-info">No se ha seleccionado ninguna imagen</div>
+                </div>
+            </div>
+
+            <!-- Respuestas Incorrectas -->
+            <label for="wrong-answer1">
+                Respuesta Incorrecta 1 (texto o imagen)
+                <span class="tooltip">ℹ️
+                    <span class="tooltiptext">Puedes ingresar texto O cargar una imagen (solo JPG/PNG). No ambos.</span>
+                </span>
+            </label>
+            <div class="answer-option-container">
+                <input type="text" id="wrong-answer1-text" placeholder="Texto de la respuesta incorrecta 1" class="answer-text">
+                <div class="or-divider">O</div>
+                <div class="image-upload-container">
+                    <input type="file" id="wrong-answer1-image" accept=".jpg,.jpeg,.png" class="answer-image">
+                    <div class="file-info" id="wrong-answer1-file-info">No se ha seleccionado ninguna imagen</div>
+                </div>
+            </div>
+
+            <label for="wrong-answer2">
+                Respuesta Incorrecta 2 (texto o imagen)
+                <span class="tooltip">ℹ️
+                    <span class="tooltiptext">Puedes ingresar texto O cargar una imagen (solo JPG/PNG). No ambos.</span>
+                </span>
+            </label>
+            <div class="answer-option-container">
+                <input type="text" id="wrong-answer2-text" placeholder="Texto de la respuesta incorrecta 2" class="answer-text">
+                <div class="or-divider">O</div>
+                <div class="image-upload-container">
+                    <input type="file" id="wrong-answer2-image" accept=".jpg,.jpeg,.png" class="answer-image">
+                    <div class="file-info" id="wrong-answer2-file-info">No se ha seleccionado ninguna imagen</div>
+                </div>
+            </div>
+
+            <!-- Botón para generar el acertijo -->
+            <button id="generate">Generar Acertijo</button>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
