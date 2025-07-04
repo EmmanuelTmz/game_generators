@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Mental Unificada</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Pantalla del generador -->
+        <div id="generator-screen">
+            <h1>Generador de Calculadora Mental</h1>
+            <div class="upload-section">
+                <h2>Cargar Archivo TXT</h2>
+                <div class="instructions">
+                    <h3>Instrucciones para el archivo:</h3>
+                    <ol>
+                        <li><strong>Primera línea:</strong> La operación matemática en formato: <code>numero,operadornumero,...</code></li>
+                        <li><strong>Líneas siguientes:</strong> Posibles respuestas, una de ellas marcada con * (la correcta)</li>
+                    </ol>
+                    <h3>Ejemplo:</h3>
+                    <pre>5,+3,*2,-1
+10*
+9
+14
+7</pre>
+                    <p>Este ejemplo representa la operación: 5 + 3 × 2 - 1 = 10</p>
+                    <a href="ejemplo_calculo.txt" download>Descargar archivo de ejemplo</a>
+                </div>
+                <input type="file" id="fileInput" accept=".txt">
+                <button id="validateBtn">Validar</button>
+                <div id="validationResult"></div>
+            </div>
+            <div id="game-options" class="hidden">
+                <label for="displayTime">Velocidad (ms):</label>
+                <input type="number" id="displayTime" value="500" min="100" max="2000">
+                <button id="startGameBtn">Comenzar Juego</button>
+            </div>
+        </div>
+
+        <!-- Resto del código permanece igual -->
